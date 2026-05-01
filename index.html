@@ -14,10 +14,12 @@
     body {
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       font-family: 'Segoe UI', sans-serif;
+      padding: 40px 16px;
     }
 
     .card {
@@ -128,6 +130,31 @@
       font-size: 12px;
       margin: 20px 0 0;
     }
+
+    .comments-section {
+      width: 100%;
+      max-width: 720px;
+      margin: 40px auto 60px;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 36px 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .comments-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    #disqus_thread a {
+      color: #4ade80 !important;
+    }
   </style>
 </head>
 <body>
@@ -170,6 +197,24 @@
 
     <p class="divider">Powered by Formspree</p>
   </div>
+
+  <section class="comments-section">
+    <div class="comments-title">💬 댓글</div>
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = 'https://investment1-ao3.pages.dev/';
+        this.page.identifier = 'investment1-main';
+      };
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://investment1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    <\/script>
+    <noscript>댓글을 보려면 JavaScript를 활성화하세요. <a href="https://disqus.com/?ref_noscript">Disqus로 제공되는 댓글</a></noscript>
+  </section>
 
   <script>
     const form = document.getElementById('login-form');
